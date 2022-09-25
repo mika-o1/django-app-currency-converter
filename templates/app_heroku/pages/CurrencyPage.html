@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Валюта</title>
+</head>
+<body>
+    <div>
+        {{currency}}
+    </div>
+    <div>
+        <form action="{% url 'get_currency' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <!-- Начально будет выбрано второе значение -->
+            <select name="currency"> <!--Supplement an id here instead of using 'name'-->
+              <option value="USD">USD</option>
+              <option value="Euro" selected>EURO</option>
+              <option value="RUB">RUB</option>
+            </select>
+            <button type="submit">узнать валюту</button>
+        </form>
+    </div>
+</body>
+</html>
